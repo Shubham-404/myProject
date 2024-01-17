@@ -378,14 +378,14 @@
             <a class="asking" href="#" onclick="register()">Sign Up</a></span>
           <header>Login</header>
         </div>
-        <form method="post" action="/buyer">
+        <form method="post" action="/ask">
           {% csrf_token %}
           <div class="input-box"> 
-            <input type="text" class="input-field"  placeholder="Username(Email or Mobile)" />
+            <input type="text" class="input-field"  placeholder="Username(Email or Mobile)" required />
             <i class="bx bx-user"></i>
           </div>
           <div class="input-box">
-            <input type="password" class="input-field"  placeholder="Password" />
+            <input type="password" class="input-field"  placeholder="Password" required />
             <i class="bx bx-lock-alt"></i>
           </div>
           <div class="input-box">
@@ -399,7 +399,7 @@
             <div class="two">
               <label><a href="#">Forgot password?</a></label>
             </div>
-          {% comment %} </form> {% endcomment %}
+        </form>
         </div>
       </div>
 
@@ -413,7 +413,7 @@
           {% csrf_token %}
           <div class="two-forms">
             <div class="input-box">
-              <input type="text" class="input-field" name="fname" placeholder="Firstname" />
+              <input type="text" class="input-field" name="fname" placeholder="Firstname" required/>
               <i class="bx bx-user"></i>
             </div>
             <div class="input-box">
@@ -422,11 +422,11 @@
             </div>
           </div>
           <div class="input-box">
-            <input type="text" class="input-field" name="email" placeholder="Email" />
+            <input type="text" class="input-field" name="email" placeholder="Email or Mobile"  required />
             <i class="bx bx-envelope"></i>
           </div>
           <div class="input-box">
-            <input type="password" class="input-field" name="password" placeholder="Password" />
+            <input type="password" class="input-field" name="password" placeholder="Password" required />
             <i class="bx bx-lock-alt"></i>
           </div>
           <div class="input-box">

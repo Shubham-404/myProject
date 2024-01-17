@@ -1,0 +1,109 @@
+<!-- myapp/templates/myapp/display_output.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Output on Webpage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .center-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Python Output on Webpage</h1>
+    </header>
+
+    <nav>
+        <div class="center-text">
+            <h2>Threads Revive</h2>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Current Output:</h2>
+            <p>{{ result }}</p>
+        </section>
+
+        <section>
+            <h2>Previous Results:</h2>
+            <ul>
+                {% for stored_result in all_results %}
+                    <li>{{ stored_result.result }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <div class="center-button">
+            <button onclick="location.href='/done';">Continue</button>
+        </div>
+    </main>
+
+</body>
+</html>

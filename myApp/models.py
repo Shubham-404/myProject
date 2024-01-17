@@ -17,7 +17,7 @@ class product(models.Model):
     stock = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.CharField(max_length=50)
-    img=models.ImageField()
+    img=models.FileField()
 
     def __str__(self):
         return self.productid
@@ -46,5 +46,6 @@ class SellerInfo(models.Model):
     selleraddress = models.TextField(max_length=75)
     sellerphone = models.CharField(max_length=15) 
     
-    
+class Output(models.Model):
+    result = models.TextField()
     
