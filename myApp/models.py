@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 class customer(models.Model):
     name=models.CharField(max_length=20)
-    mobile=models.IntegerField()
+    mobile=models.IntegerField(unique=True)
     email=models.CharField(max_length=20)
     address=models.CharField(max_length=50)
-    # pin=models.IntegerField()
+    pin=models.IntegerField(null=True, blank=True)
+    
     # type=models.BooleanField()
 
     def __str__(self):
@@ -45,7 +46,11 @@ class SellerInfo(models.Model):
     selleremail = models.EmailField(max_length=20)
     selleraddress = models.TextField(max_length=75)
     sellerphone = models.CharField(max_length=15) 
+    def __str__(self):
+        return self.sellername
     
 class Output(models.Model):
     result = models.TextField()
+    def __str__(self):
+        return self.result
     

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        /* Styles from previous example */
+        /* ... */
+    </style>
+</head>
+<body>
+
+    <!-- Signup Form -->
+    <form id="signup-form">
+        <!-- Your form fields go here -->
+        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <button type="submit">Signup</button>
+    </form>
+
+    <!-- Message Popup -->
+    <div id="message-popup">
+        <p id="message-text"></p>
+        <button onclick="closeMessagePopup()">Close</button>
+    </div>
+
+    <!-- Overlay Background -->
+    <div id="overlay"></div>
+
+    <!-- JavaScript to show/hide popup and handle signup -->
+    <script>
+        // Function to show the message popup
+        function showMessagePopup(message) {
+            document.getElementById('message-text').textContent = message;
+            document.getElementById('message-popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Function to close the message popup
+        function closeMessagePopup() {
+            document.getElementById('message-popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Function to handle form submission
+        function handleSignup(event) {
+            event.preventDefault();
+
+            // Get form data
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validate form data (you may want to add more validation)
+            if (!username || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Perform signup (replace this with your actual signup endpoint)
+            fetch('/your/signup/endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Signup failed');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Signup successful, show the success message
+                showMessagePopup('Signup successful! Welcome aboard.');
+
+                // You can add additional actions here, such as redirecting to another page
+                // window.location.href = '/your/success/page';
+            })
+            .catch(error => {
+                // Handle errors (show an alert or log the error)
+                console.error('Error:', error.message);
+            });
+        }
+
+        // Attach an event listener to the form
+        document.getElementById('signup-form').addEventListener('submit', handleSignup);
+    </script>
+
+</body>
+</html>

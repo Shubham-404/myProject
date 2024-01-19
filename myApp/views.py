@@ -2,6 +2,13 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse
 from myApp.models import SellerInfo, customer, Output, product
 from myApp.ai_model import aimodel
+from django.contrib import messages
+# messages.error
+# messages.success
+# messages.debug
+# messages.info
+# messages.warning
+
 from random import randint
 
 # Create your views here.
@@ -14,11 +21,12 @@ def home(request):
 def signin(request):
     if request.method=="POST":
         name=request.POST.get("fname")+" "+request.POST.get("lname")
-        email=request.POST.get("email")
-        # password=request.POST.get("password")    
-        info=customer(name=name, mobile=email)
+        mobile=request.POST.get("mobile")
+        # password=request.POST.get("password")
+        info=customer(name=name, mobile=mobile)
         info.save()
-        return redirect('/done')
+        messages.success(request, f"Hurray! You were Registered Successfully! Kindly LogIn.✔")
+        return redirect('/signin')
         # return HttpResponse("Done bro!!")    
     return render(request, "signin.html")
         # return HttpResponse("This is Signin Page!")
