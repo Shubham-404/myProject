@@ -1,0 +1,19 @@
+Here are some of the requirements needed the successfull implementation the code available.
+* Softwares
+** Python 3.12(64-bit)
+
+* Packages
+** python libraries
+** django 5.0.1
+** clarifai_grpc 10.0.3
+** pillow 10.2.0
+
+* Tools(for reference purposes only)
+** HTML
+** CSS
+** JavaScript
+** Django
+** Sqlit3
+** Python
+** ClarifAI
+** Tensorflow
