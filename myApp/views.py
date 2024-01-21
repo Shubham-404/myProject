@@ -80,7 +80,7 @@ def sellerinfo(request):
     
 
 def AiModel(request):
-    op=aimodel("https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw3b5264c3/images/full/147861_910/2018/147861_9100155_Canyon_Snapback_bk_wh.jpg?sw=750&sfrm=png&q=90&bgcolor=F2F2F2")
+    op=aimodel("https://i5.walmartimages.com/asr/38e07a08-f83e-4459-a37b-514ae22a60b2.341925d96639ba229923fcb9b8a5b40e.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF")
     result = op
 
     # Save the result to the database
